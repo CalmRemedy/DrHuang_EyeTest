@@ -190,13 +190,16 @@
         }
         
         .amsler-grid-wrapper { width: 100%; max-width: 600px; margin: 0 auto 12px auto; }
+        
+        /* ⬇️⬇️⬇️ 唯一修改的地方：將背景改為 repeating-linear-gradient，解決 Safari 小數點誤差破格問題 ⬇️⬇️⬇️ */
         .amsler-grid {
             width: 100%; aspect-ratio: 1 / 1; position: relative; border: 2px solid var(--grid-line);
             background-image: 
-                linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-            background-size: 5% 5%;
+                repeating-linear-gradient(to right, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent 5%),
+                repeating-linear-gradient(to bottom, var(--grid-line) 0, var(--grid-line) 1px, transparent 1px, transparent 5%);
         }
+        /* ⬆️⬆️⬆️ 唯一修改的地方 ⬆️⬆️⬆️ */
+        
         .amsler-dot {
             position: absolute; top: 50%; left: 50%; width: 8px; height: 8px;
             background-color: var(--grid-line); border-radius: 50%; transform: translate(-50%, -50%); z-index: 1;
@@ -400,8 +403,8 @@
                                     <path d="M0,12 L16,12 C21,12 25,14 29,15 C33,16 38,14 43,13 C49,12 54,12 60,12"/>
                                     <path d="M0,18 L15,18 C20,18 24,19 28,21 C32,23 36,22 40,20 C45,18 51,18 60,18"/>
                                     <path d="M0,24 L14,24 C19,24 23,26 27,28 C31,30 35,29 39,27 C44,24 51,24 60,24"/>
-                                    <path d="M0,30 L14,30 C19,30 23,30 27,33 C30,34 33,32 36,31 C40,29 46,29 52,30 L60,30"/>
-                                    <path d="M0,36 L15,36 C20,36 24,35 27,35 C30,33 33,36 36,36 C40,38 44,38 48,37 C53,36 56,36 60,36"/>
+                                    <path d="M0,30 L14,30 C19,30 23,31 27,33 C30,34 33,33 36,31 C40,29 46,29 52,30 L60,30"/>
+                                    <path d="M0,36 L15,36 C20,36 24,35 27,34 C30,33 33,34 36,36 C40,38 44,38 48,37 C53,36 56,36 60,36"/>
                                     <path d="M0,42 L14,42 C19,42 23,40 27,39 C30,38 33,39 36,41 C40,44 44,44 48,42 C53,41 57,42 60,42"/>
                                     <path d="M0,48 L15,48 C20,48 24,45 27,43 C30,42 33,43 36,46 C40,49 44,49 48,48 C53,47 57,48 60,48"/>
                                     <path d="M0,54 L16,54 C21,54 25,52 29,51 C33,50 37,52 41,53 C46,55 52,54 60,54"/>
