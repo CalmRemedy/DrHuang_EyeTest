@@ -53,13 +53,11 @@
         .container {
             max-width: 100%;
             margin: 0 auto;
-            padding: 0 12px 80px 12px; /* 移除 top padding 交給懸浮列 */
+            padding: 0 12px 80px 12px;
             box-sizing: border-box;
         }
         
-        /* ========================================= */
-        /* 新增：仿 Oph Calc 淡灰底懸浮橫幅 */
-        /* ========================================= */
+        /* 仿 Oph Calc 淡灰底懸浮橫幅 */
         .nav-header {
             position: sticky;
             top: 0;
@@ -88,25 +86,23 @@
             cursor: default;
         }
         .nav-btn.active {
-            background-color: #374151; /* gray-700 */
+            background-color: #374151;
             color: #ffffff;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         body.dark-mode .nav-btn.active {
-            background-color: #64b5f6; /* 原本閱讀測試的高對比主題色 */
+            background-color: #64b5f6;
             color: #000000;
         }
         
         .nav-btn.contrast-btn {
             background-color: transparent;
-            color: #4b5563; /* gray-600 */
+            color: #4b5563;
             cursor: pointer;
         }
         body.dark-mode .nav-btn.contrast-btn {
             color: #9ca3af;
         }
-
-        /* ========================================= */
 
         .instruction {
             font-size: 16px;
@@ -144,7 +140,7 @@
         <!-- 淡灰色懸浮橫幅 -->
         <nav class="nav-header">
             <div class="nav-btn active">近距離閱讀測試</div>
-            <button id="contrastBtn" class="nav-btn contrast-btn" onclick="toggleContrast()">🌓 高對比</button>
+            <button id="contrastBtn" class="nav-btn contrast-btn" onclick="toggleContrast()">🌓 切換高對比</button>
         </nav>
 
         <div class="instruction">
@@ -182,7 +178,7 @@
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
             const btn = document.getElementById('contrastBtn');
-            btn.innerHTML = isDark ? '☀ 一般模式' : '🌓 高對比';
+            btn.innerHTML = isDark ? '☀ 切換一般模式' : '🌓 切換高對比';
         }
     </script>
 </body>
