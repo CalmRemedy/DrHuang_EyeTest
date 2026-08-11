@@ -23,8 +23,8 @@
             --btn-clear-bg: #e0e0e0;
             --btn-clear-text: #333333;
             --symptom-bg: #ffffff; 
-            --inst-macular-bg: #fbe9e7;
-            --inst-macular-text: #d35400;
+            --inst-bg: #f3f4f6;  /* 淺灰底 */
+            --inst-text: #1f2937; /* 深色字 */
         }
 
         /* 黑底白字高對比模式 */
@@ -36,8 +36,8 @@
             --btn-clear-bg: #424242;
             --btn-clear-text: #ffffff;
             --symptom-bg: #1a1a1a; 
-            --inst-macular-bg: #3e2010;
-            --inst-macular-text: #ffb74d;
+            --inst-bg: #374151;   /* 高對比時：深灰底 */
+            --inst-text: #f9fafb; /* 高對比時：淺色字 */
         }
 
         body {
@@ -57,37 +57,39 @@
             box-sizing: border-box;
         }
 
-        /* 上方懸浮橫幅與按鈕設計 */
+        /* 上方懸浮橫幅與按鈕設計 (深灰底) */
         .nav-header {
             position: sticky;
             top: 0;
             z-index: 100;
-            background-color: rgba(229, 231, 235, 0.9);
+            background-color: rgba(75, 85, 99, 0.95);
             backdrop-filter: blur(4px);
-            padding: 10px 16px; /* 加寬左右內距 */
+            padding: 12px 16px; 
             margin: 0 -12px 12px -12px;
             display: flex;
-            justify-content: space-between; /* 標題靠左，按鈕靠右 */
-            align-items: center; /* 垂直置中 */
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
         }
         body.dark-mode .nav-header {
-            background-color: rgba(26, 37, 47, 0.9);
+            background-color: rgba(31, 41, 55, 0.98);
         }
         
-        /* 左側標題文字 (純文字不再像按鈕) */
+        /* 左側標題文字 (純白大字) */
         .nav-title {
-            font-size: 18px;
+            font-size: 22px; 
             font-weight: bold;
-            color: #374151;
+            color: #ffffff;  
         }
         body.dark-mode .nav-title {
-            color: #f3f4f6;
+            color: #ffffff;
         }
         
-        /* 右側切換按鈕 (做成明顯可點擊的實體按鈕) */
+        /* 右側切換按鈕 */
         .contrast-btn {
-            padding: 8px 12px;
+            width: 140px; /* 固定寬度，確保切換文字時不會忽大忽小 */
+            text-align: center;
+            padding: 8px 0;
             font-size: 14px;
             font-weight: bold;
             border-radius: 8px;
@@ -99,26 +101,25 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         .contrast-btn:active {
-            transform: scale(0.95); /* 按下時微縮回饋 */
+            transform: scale(0.95);
         }
         body.dark-mode .contrast-btn {
             background-color: #374151;
             color: #ffffff;
-            border-color: #4b5563;
+            border-color: #6b7280;
         }
 
+        /* 衛教提示框 */
         .instruction {
             font-size: 16px;
+            color: var(--inst-text);
             margin-bottom: 5px;
             text-align: center;
             font-weight: normal;
+            background-color: var(--inst-bg);
             padding: 6px;
             border-radius: 8px;
             margin-top: calc(5px + env(safe-area-inset-top));
-        }
-        .instruction.macular-inst {
-            background-color: var(--inst-macular-bg);
-            color: var(--inst-macular-text);
         }
         
         .instruction-and-clear-header {
@@ -243,7 +244,7 @@
             <button id="contrastBtn" class="contrast-btn" onclick="toggleContrast()">🌓 切換高對比</button>
         </nav>
 
-        <div class="instruction macular-inst">
+        <div class="instruction">
             請戴著閱讀用眼鏡(若有)，手機距離眼睛約30公分
         </div>
         
